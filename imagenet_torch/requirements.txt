@@ -1,0 +1,10 @@
+matplotlib==3.6.1+computecanada
+numpy==1.24.2+computecanada
+pandas==1.5.3+computecanada
+Pillow==10.0.0+computecanada
+scipy==1.11.2+computecanada
+torch==2.0.1+computecanada
+torchvision==0.15.2+computecanada
+torchaudio==2.0.2+computecanada
+networkx==3.2.1+computecanada
+tqdm==4.60.0
