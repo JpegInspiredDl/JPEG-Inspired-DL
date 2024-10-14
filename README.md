@@ -9,16 +9,36 @@ class="center">
 
 ## Installation
 
-The repo is tested with Python 3.8, PyTorch 2.0.1, and CUDA 11.7.
+The repo is tested with Python 3.8, CUDA 11.7, and based on the requirements file provided.
 
 
-## Running
+## Senstivity Estimation
 
 1. Fetch the pretrained models used for driving the senstivity by:
     ```
     sh scripts/fetch_pretrained_cifar100.sh
     ```
    which will download and save the models to `save/models`
+
+
+
+
+## Robustness Testing
+
+1. Test Robustness for the learned model 
+
+    ```
+    python3 robustness_JPEG.py --model ${mode} \
+                                    --alpha_fixed --JPEG_enable \
+                                    --model_dir ${model_dir}
+    ```
+
+2. Test Robustness for the standard model 
+
+    ```
+    python3 robustness_JPEG.py --model ${mode} --model_dir "./save/models/${mode}_vanilla/ckpt_epoch_240.pth
+    ```
+
 
 
 ## Acknowledgements

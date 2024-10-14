@@ -70,7 +70,7 @@ def parse_option():
                                  'resnet8x4', 'resnet32x4', 'wrn_16_1', 'wrn_16_2', 'wrn_40_1', 'wrn_40_2',
                                  'vgg8', 'vgg11', 'vgg13', 'vgg16', 'vgg19',
                                  'MobileNetV2', 'ShuffleV1', 'ShuffleV2', 'ResNet50'])
-    parser.add_argument('--dataset', type=str, default='cifar100', choices=['cifar100', 'cifar10'], help='dataset')
+    parser.add_argument('--dataset', type=str, default='cifar100', choices=['cifar100'], help='dataset')
 
     parser.add_argument('-t', '--trial', type=int, default=0, help='the experiment id')
 
@@ -98,7 +98,8 @@ def parse_option():
     parser.add_argument('--hardness', type=float, default=2, help='Hardness of the quantizer')
     parser.add_argument('--std_width_Y', type=float, default=1, help='Width of the standard deviation')
     parser.add_argument('--std_width_CbCr', type=float, default=1, help='Width of the standard deviation')
-    parser.add_argument('--jpeg_layers', type=int, default=1, help='Number of JPEG layers')
+    parser.add_argument('--model_dir', type=str, default='', help='Mode directory for robustness testing') 
+
 
     
     parser.add_argument('--log_add', type=str, default='', help='add text to the file')
@@ -177,32 +178,6 @@ def parse_option():
                                                                                 opt.trial
                                                                                 )        
     else:
-        # opt.model_name = '{}_{}_JEPG_lr_{}_hardness_{}_Q_min_{}_Q_max_{}_std_Y_{}_std_CbCr_{}_{}{}_trial_{}'.format(opt.dataset,
-        #                                                                         opt.model, 
-        #                                                                         opt.JEPG_learning_rate,
-        #                                                                         opt.hardness,
-        #                                                                         opt.min_Q_Step,
-        #                                                                         opt.max_Q_Step,
-        #                                                                         opt.std_width_Y,
-        #                                                                         opt.std_width_CbCr,
-        #                                                                         opt.alpha_setup,
-        #                                                                         opt.log_add,
-        #                                                                         opt.trial
-        #                                                                         )
-
-        # opt.model_name = '{}_{}_alpha_lr_{}_alpha_{}_JEPG_lr_{}_hardness_{}_numBits_{}_Q_min_{}_Q_max_{}_{}{}_trial_{}'.format(opt.dataset,
-        #                                                                         opt.model, 
-        #                                                                         opt.alpha_learning_rate,
-        #                                                                         opt.JEPG_alpha, 
-        #                                                                         opt.JEPG_learning_rate,
-        #                                                                         opt.hardness,
-        #                                                                         opt.num_bit,
-        #                                                                         opt.min_Q_Step,
-        #                                                                         opt.max_Q_Step,
-        #                                                                         opt.alpha_setup,
-        #                                                                         opt.log_add,
-        #                                                                         opt.trial
-        #                                                                         )
             opt.model_name = '{}_{}_alpha_lr_{}_alpha_{}_JEPG_lr_{}_numBits_{}_qmax_{}_{}{}_trial_{}'.format(opt.dataset,
                                                                                 opt.model, 
                                                                                 opt.alpha_learning_rate,
@@ -267,6 +242,8 @@ def main():
         model_t = CustomModel(jpeg_layer, underlying_model)
     else:
         model_t =  underlying_model
+    
+    path_t = opt.model_dir
 
     criterion = nn.CrossEntropyLoss()
 
@@ -275,38 +252,8 @@ def main():
         criterion = criterion.cuda()
         cudnn.benchmark = True
 
-# xx cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.003_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_2	240	72.52999877929688	4.042403682735231 hr
-# xx cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.005_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_1	240	73.11000061035156	3.777343358397484 hr
-# OO cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.005_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_2	240	73.1199951171875	3.863682229585118 hr
-# xx cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.001_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_2	240	73.0	4.189690086245537 hr
-# cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.001_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_1	240	72.79999542236328	4.0079972440004346 hr
-# cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.003_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_1	240	72.87999725341797	4.160730322202046 hr
-
-
-    if opt.JPEG_enable:
-        
-        # exp_dir = "cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.003_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_1" 
-        exp_dir = "cifar100_resnet56_alpha_lr_None_alpha_5.0_JEPG_lr_0.001_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_1"
-        main_dir = "/home/ahamsala/PROJECT_AH/JPEG_DNN/save/cifar100/models/"
-        path_t = main_dir + exp_dir
-        path_t += f"/{opt.model}_best.pth"
-    else:
-        path_t = "/home/ahamsala/PROJECT_AH/JPEG_DNN/pretrained/cifar100/resnet56_vanilla/ckpt_epoch_240.pth"
-
-    # if opt.JPEG_enable:
-        
-    #     exp_dir = "cifar100_vgg13_alpha_lr_None_alpha_5.0_JEPG_lr_0.005_numBits_8_qmax_20.0_alpha_fixed_clampWbits_initial_Q_w_sensitivity_JPEG_ADAMs_trial_2" 
-    #     main_dir = "/home/ahamsala/PROJECT_AH/JPEG_DNN/save/cifar100/models/"
-    #     path_t = main_dir + exp_dir
-    #     path_t += f"/{opt.model}_best.pth"
-    # else:
-    #     path_t = "/home/ahamsala/PROJECT_AH/JPEG_DNN/pretrained/cifar100/vgg13_vanilla/ckpt_epoch_240.pth"
-
-    if opt.dataset == 'cifar100':
-        check_point = torch.load(path_t)
-        model_t.load_state_dict(check_point['model'])
-    elif opt.dataset == 'CUB200':
-        model_t.load_state_dict(torch.load(path_t)['model'])
+    check_point = torch.load(path_t)
+    model_t.load_state_dict(check_point['model'])
 
     if opt.JPEG_enable:
         opt = check_point['opt']
@@ -319,9 +266,7 @@ def main():
         model_t = model_t.cuda()
         criterion = criterion.cuda()
         cudnn.benchmark = True
-    
-
-    
+        
 
     # validate teacher accuracy
     model_t.eval()
@@ -334,8 +279,6 @@ def main():
         chrom_qtable =  model_t.jpeg_layer.chrom_qtable.view(8,8).clone().detach()
         print(lum_qtable)
 
-    # print(chrom_qtable)
-
     # Ensure the model is in evaluation mode
     model_t.eval()
     steps = 5
@@ -347,6 +290,7 @@ def main():
             atk.set_normalization_used(mean=[0, 0, 0], std=[1/255., 1/255., 1/255.])
         else:
             atk.set_normalization_used(mean=[0.5071, 0.4867, 0.4408], std=[0.2675, 0.2565, 0.2761])
+        
         atk.set_model_training_mode(model_training=False)
         atk.set_mode_default()
         teacher_acc, _, _ = validate_attack(val_loader, model_t, criterion_cls, opt, atk)
