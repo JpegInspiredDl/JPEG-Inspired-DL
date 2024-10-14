@@ -43,35 +43,24 @@ which will download and save the models to `save/models`
 
 
 
-<p align="center">
-    <figure style="display: inline-block; margin: 10px;">
-        <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
-        <figcaption>Pets (densenet121)</figcaption>
-    </figure>
-    <figure style="display: inline-block; margin: 10px;">
-        <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
-        <figcaption>Pets (resnet18)</figcaption>
-    </figure>
-    <figure style="display: inline-block; margin: 10px;">
-        <img src="./Senstivity/Senstivity_Pets/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
-        <figcaption>Pets (efficientformer_l1)</figcaption>
-    </figure>
-</p>
-
-## Initialization of Q Tables
-
-<p align="center">
-    <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
-</p>
+### Initialization of Q Tables
 
 
 <p align="center">
-    <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Pets/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+    <figure style="display: inline-block; margin: 6px;">
+        <img src="./Senstivity/Senstivity_Flowers/plots/densenet121_Q_initial.png" width="25%" height="25%" class="center">
+        <figcaption>Flowers (densenet121)</figcaption>
+    </figure>
+    <figure style="display: inline-block; margin: 6px;">
+        <img src="./Senstivity/Senstivity_Flowers/plots/resnet18_Q_initial.png" width="25%" height="25%" class="center">
+        <figcaption>Flowers (resnet18)</figcaption>
+    </figure>
+    <figure style="display: inline-block; margin: 6px;">
+        <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1_Q_initial.png" width="25%" height="25%"class="center">
+        <figcaption>Flowers (efficientformer_l1)</figcaption>
+    </figure>
 </p>
+
 
 
 ## Robustness Testing
