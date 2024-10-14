@@ -27,18 +27,19 @@ which will download and save the models to `save/models`
 
 <p align="center">
     <figure style="display: inline-block; margin: 10px;">
-        <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
+        <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="auto" class="center">
         <figcaption>Flowers (densenet121)</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 10px;">
-        <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
+        <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="auto" class="center">
         <figcaption>Flowers (resnet18)</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 10px;">
-        <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+        <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="auto" class="center">
         <figcaption>Flowers (efficientformer_l1)</figcaption>
     </figure>
 </p>
+
 
 
 <p align="center">
