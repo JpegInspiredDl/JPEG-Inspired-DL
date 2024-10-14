@@ -44,7 +44,22 @@ which will download and save the models to `save/models`
 
 
 ### Initialization of Q Tables
+Based on the drived Senstivity, we have followed the following steps to initialize the Q-Tables for JPEG-DL.
 
+```
+    def normalize(arr, factor):
+        if factor == 0:
+            factor = np.max(arr)
+        arr = arr/factor
+        return arr, factor
+
+    Y_sens               = 1 / Y_sens 
+    CbCr_sens            =  2 / (Cb_sens + Cr_sens)
+    _    , factor        = normalize(Y_sens   , 0)
+    factor               = factor / q_max
+    Y_sens    , _        = normalize(Y_sens   , factor)
+    CbCr_sens , _        = normalize(CbCr_sens, factor)
+```
 
 <p align="center">
     <figure style="display: inline-block; margin: 6px;">
