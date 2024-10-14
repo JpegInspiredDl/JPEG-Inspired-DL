@@ -9,18 +9,63 @@ class="center">
 
 ## Installation
 
-The repo is tested with Python 3.8, CUDA 11.7, and based on the requirements file provided.
+The repo is tested with Python 3.8, CUDA 11.7, and based on the 'requirements.txt' file provided.
+
+
+
 
 
 ## Senstivity Estimation
 
-1. Fetch the pretrained models used for driving the senstivity by:
+Fetch the pretrained models used for driving the senstivity by:
+
     ```
     sh scripts/fetch_pretrained_cifar100.sh
     ```
-   which will download and save the models to `save/models`
+which will download and save the models to `save/models`
+
+<p align="center">
+    <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+</p>
+
+<p align="center">
+    <figure style="display: inline-block; margin: 10px;">
+        <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
+        <figcaption>Caption for Image 1</figcaption>
+    </figure>
+    <figure style="display: inline-block; margin: 10px;">
+        <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
+        <figcaption>Caption for Image 2</figcaption>
+    </figure>
+    <figure style="display: inline-block; margin: 10px;">
+        <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+        <figcaption>Caption for Image 3</figcaption>
+    </figure>
+</p>
+
+<p align="center">
+    <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Pets/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+</p>
 
 
+## Initialization of Q Tables
+
+<p align="center">
+    <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+</p>
+
+
+<p align="center">
+    <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
+    <img src="./Senstivity/Senstivity_Pets/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+</p>
 
 
 ## Robustness Testing
