@@ -2,9 +2,9 @@
 
 This repo is for reproducing the ImageNet experimental results in our paper [*JPEG Inspired Deep Learning*] submitted at ICLR 2025.
 
-For CIFAR-100 and Fine-grained Tasks use [TransformerBased](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/TransformerBased) directory.
+To CIFAR-100 and Fine-grained Tasks using Transformer-Based model, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/TransformerBased).
 
-For ImageNet use [TransformerBased](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/ImageNet) directory.
+For ImageNet training, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/ImageNet) directory.
 
 
 <p align="center">
