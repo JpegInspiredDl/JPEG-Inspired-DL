@@ -24,13 +24,8 @@ Fetch the pretrained models used for driving the senstivity by:
     ```
 which will download and save the models to `save/models`
 
-<p align="center">
-    <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
-</p>
 
-<p align="center">
+<!-- <p align="center">
     <figure style="display: inline-block; margin: 10px;">
         <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
         <figcaption>Caption for Image 1</figcaption>
@@ -43,7 +38,7 @@ which will download and save the models to `save/models`
         <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
         <figcaption>Caption for Image 3</figcaption>
     </figure>
-</p>
+</p> -->
 
 <div style="display: flex; justify-content: center;">
     <figure style="margin: 10px; text-align: center;">
