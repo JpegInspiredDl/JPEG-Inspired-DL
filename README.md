@@ -3,7 +3,7 @@
 This repo is for reproducing the ImageNet experimental results in our paper [*JPEG Inspired Deep Learning*] submitted at ICLR 2025.
 
 <p align="center">
-<img src="./scripts/JPEG-DL.png" width=80% height=80% 
+<img src="./Diagrams/JPEG-DL.png" width=80% height=80% 
 class="center">
 </p>
 
