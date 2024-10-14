@@ -25,42 +25,36 @@ Fetch the pretrained models used for driving the senstivity by:
 which will download and save the models to `save/models`
 
 
-<!-- <p align="center">
+<p align="center">
     <figure style="display: inline-block; margin: 10px;">
         <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="30%" height="30%" class="center">
-        <figcaption>Caption for Image 1</figcaption>
+        <figcaption>Flowers (densenet121)</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 10px;">
         <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="30%" height="30%" class="center">
-        <figcaption>Caption for Image 2</figcaption>
+        <figcaption>Flowers (resnet18)</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 10px;">
         <img src="./Senstivity/Senstivity_Flowers/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
-        <figcaption>Caption for Image 3</figcaption>
+        <figcaption>Flowers (efficientformer_l1)</figcaption>
     </figure>
-</p> -->
-
-<div style="display: flex; justify-content: center;">
-    <figure style="margin: 10px; text-align: center;">
-        <img src="./Diagrams/JPEG-DL1.png" width="30%" height="30%">
-        <figcaption>Caption for Image 1</figcaption>
-    </figure>
-    <figure style="margin: 10px; text-align: center;">
-        <img src="./Diagrams/JPEG-DL2.png" width="30%" height="30%">
-        <figcaption>Caption for Image 2</figcaption>
-    </figure>
-    <figure style="margin: 10px; text-align: center;">
-        <img src="./Diagrams/JPEG-DL3.png" width="30%" height="30%">
-        <figcaption>Caption for Image 3</figcaption>
-    </figure>
-</div>
-
-<p align="center">
-    <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
-    <img src="./Senstivity/Senstivity_Pets/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
 </p>
 
+
+<p align="center">
+    <figure style="display: inline-block; margin: 10px;">
+        <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
+        <figcaption>Pets (densenet121)</figcaption>
+    </figure>
+    <figure style="display: inline-block; margin: 10px;">
+        <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
+        <figcaption>Pets (resnet18)</figcaption>
+    </figure>
+    <figure style="display: inline-block; margin: 10px;">
+        <img src="./Senstivity/Senstivity_Pets/plots/efficientformer_l1.png" width="30%" height="30%" class="center">
+        <figcaption>Pets (efficientformer_l1)</figcaption>
+    </figure>
+</p>
 
 ## Initialization of Q Tables
 
