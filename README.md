@@ -28,8 +28,8 @@ which will download and save the models to `save/models`
 
 <p align="center">
     <figure style="display: inline-block; margin: 6px;">
-        <img src="./Senstivity/Senstivity_Flowers/plots/densenet121.png" width="25%" height="25%" class="center">
-        <figcaption>Flowers (densenet121)</figcaption>
+        <img src="./Senstivity/Senstivity_cifar100/plots/resnet110.png" width="25%" height="25%" class="center">
+        <figcaption>CIFAR-100 (resnet110)</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 6px;">
         <img src="./Senstivity/Senstivity_Flowers/plots/resnet18.png" width="25%" height="25%" class="center">
@@ -63,8 +63,8 @@ Based on the drived Senstivity, we have followed the following steps to initiali
 
 <p align="center">
     <figure style="display: inline-block; margin: 6px;">
-        <img src="./Senstivity/Senstivity_Flowers/plots/densenet121_Q_initial.png" width="25%" height="25%" class="center">
-        <figcaption>Flowers (densenet121)</figcaption>
+        <img src="./Senstivity/Senstivity_cifar100/plots/resnet110_Q_initial.png" width="25%" height="25%" class="center">
+        <figcaption>CIFAR-100 (resnet110)</figcaption>
     </figure>
     <figure style="display: inline-block; margin: 6px;">
         <img src="./Senstivity/Senstivity_Flowers/plots/resnet18_Q_initial.png" width="25%" height="25%" class="center">
