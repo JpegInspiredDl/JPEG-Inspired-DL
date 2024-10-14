@@ -45,6 +45,21 @@ which will download and save the models to `save/models`
     </figure>
 </p>
 
+<div style="display: flex; justify-content: center;">
+    <figure style="margin: 10px; text-align: center;">
+        <img src="./Diagrams/JPEG-DL1.png" width="30%" height="30%">
+        <figcaption>Caption for Image 1</figcaption>
+    </figure>
+    <figure style="margin: 10px; text-align: center;">
+        <img src="./Diagrams/JPEG-DL2.png" width="30%" height="30%">
+        <figcaption>Caption for Image 2</figcaption>
+    </figure>
+    <figure style="margin: 10px; text-align: center;">
+        <img src="./Diagrams/JPEG-DL3.png" width="30%" height="30%">
+        <figcaption>Caption for Image 3</figcaption>
+    </figure>
+</div>
+
 <p align="center">
     <img src="./Senstivity/Senstivity_Pets/plots/densenet121.png" width="30%" height="30%" class="center">
     <img src="./Senstivity/Senstivity_Pets/plots/resnet18.png" width="30%" height="30%" class="center">
