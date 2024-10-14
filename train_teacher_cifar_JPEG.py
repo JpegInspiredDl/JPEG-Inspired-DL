@@ -164,32 +164,6 @@ def parse_option():
                                                                                 opt.trial
                                                                                 )        
     else:
-        # opt.model_name = '{}_{}_JEPG_lr_{}_hardness_{}_Q_min_{}_Q_max_{}_std_Y_{}_std_CbCr_{}_{}{}_trial_{}'.format(opt.dataset,
-        #                                                                         opt.model, 
-        #                                                                         opt.JEPG_learning_rate,
-        #                                                                         opt.hardness,
-        #                                                                         opt.min_Q_Step,
-        #                                                                         opt.max_Q_Step,
-        #                                                                         opt.std_width_Y,
-        #                                                                         opt.std_width_CbCr,
-        #                                                                         opt.alpha_setup,
-        #                                                                         opt.log_add,
-        #                                                                         opt.trial
-        #                                                                         )
-
-        # opt.model_name = '{}_{}_alpha_lr_{}_alpha_{}_JEPG_lr_{}_hardness_{}_numBits_{}_Q_min_{}_Q_max_{}_{}{}_trial_{}'.format(opt.dataset,
-        #                                                                         opt.model, 
-        #                                                                         opt.alpha_learning_rate,
-        #                                                                         opt.JEPG_alpha, 
-        #                                                                         opt.JEPG_learning_rate,
-        #                                                                         opt.hardness,
-        #                                                                         opt.num_bit,
-        #                                                                         opt.min_Q_Step,
-        #                                                                         opt.max_Q_Step,
-        #                                                                         opt.alpha_setup,
-        #                                                                         opt.log_add,
-        #                                                                         opt.trial
-        #                                                                         )
             opt.model_name = '{}_{}_alpha_lr_{}_alpha_{}_JEPG_lr_{}_numBits_{}_qmax_{}_{}{}_trial_{}'.format(opt.dataset,
                                                                                 opt.model, 
                                                                                 opt.alpha_learning_rate,
@@ -203,9 +177,6 @@ def parse_option():
                                                                                 )
     
 
-    # opt.tb_folder = os.path.join(opt.tb_path, opt.model_name)
-    # if not os.path.isdir(opt.tb_folder):
-    #     os.makedirs(opt.tb_folder)
 
     print(opt.model_name)
     opt.save_folder = os.path.join(opt.model_path, opt.model_name)
@@ -281,36 +252,23 @@ def main():
     optimizer_underlying_model_data = [
                         {'params': model.underlying_model.parameters(), 'lr': opt.learning_rate, 'momentum': opt.momentum, 'weight_decay': opt.weight_decay},
                     ]
+                    
+    optimizer_JPEG_layer_data = [
+                        {'params': model.jpeg_layer.lum_qtable, 'lr': opt.JEPG_learning_rate,},
+                        {'params': model.jpeg_layer.chrom_qtable, 'lr': opt.JEPG_learning_rate,},
+                        ]
 
-    if  opt.ADAM_enable:
-        optimizer_JPEG_layer_data = [
-                            {'params': model.jpeg_layer.lum_qtable, 'lr': opt.JEPG_learning_rate,},
-                            {'params': model.jpeg_layer.chrom_qtable, 'lr': opt.JEPG_learning_rate,},
-                            ]
-    else:
-        optimizer_JPEG_layer_data = [
-                            {'params': model.jpeg_layer.lum_qtable, 'lr': opt.JEPG_learning_rate, 'momentum': opt.momentum,},
-                            {'params': model.jpeg_layer.chrom_qtable, 'lr': opt.JEPG_learning_rate, 'momentum': opt.momentum,},
-                            ]
     
     if opt.JPEG_alpha_trainable:
-        if  opt.ADAM_enable:
-            optimizer_JPEG_layer_data.append({'params': model.jpeg_layer.alpha_lum, 'lr': opt.alpha_learning_rate,})
-            optimizer_JPEG_layer_data.append({'params': model.jpeg_layer.alpha_chrom, 'lr': opt.alpha_learning_rate,})
-        else:
-            optimizer_JPEG_layer_data.append({'params': model.jpeg_layer.alpha_lum, 'lr': opt.alpha_learning_rate, 'momentum': opt.momentum,})
-            optimizer_JPEG_layer_data.append({'params': model.jpeg_layer.alpha_chrom, 'lr': opt.alpha_learning_rate, 'momentum': opt.momentum,})
-    
+        optimizer_JPEG_layer_data.append({'params': model.jpeg_layer.alpha_lum, 'lr': opt.alpha_learning_rate,})
+        optimizer_JPEG_layer_data.append({'params': model.jpeg_layer.alpha_chrom, 'lr': opt.alpha_learning_rate,})
+
     
     
     
     optimizer_underlying_model = optim.SGD(optimizer_underlying_model_data)
-    
-    if opt.ADAM_enable:
-        optimizer_JPEG_Layer = optim.Adam(optimizer_JPEG_layer_data)
-    else:
-        optimizer_JPEG_Layer = optim.SGD(optimizer_JPEG_layer_data)
-    
+    optimizer_JPEG_Layer = optim.Adam(optimizer_JPEG_layer_data)
+
     criterion = nn.CrossEntropyLoss()
 
     if torch.cuda.is_available():
@@ -322,12 +280,6 @@ def main():
     # log file
     log_fname = os.path.join(opt.log_folder, '{experiment}.txt'.format(experiment=opt.model_name))
     print(log_fname)
-    # with open(log_fname, 'a') as log:
-    #     hardness_Y =  model.jpeg_layer.hardness_Y.view(opt.block_size, opt.block_size).clone().detach()
-    #     hardness_CbCr =  model.jpeg_layer.hardness_CbCr.view(opt.block_size, opt.block_size).clone().detach()
-    #     line = "Hardness ==> Y : "  + str(hardness_Y.min().item())  + "\t" + str(hardness_Y.max().item())
-    #     line += "\t, CbCr : " +  str(hardness_CbCr.min().item())  + "\t" + str(hardness_CbCr.max().item())  + "\n" 
-    #     log.write(line)
     
     # routine
     time1_total = time.time()
@@ -347,10 +299,6 @@ def main():
         print("Hardness --> Min: {:.3f}, Max: {:.3f}".format(hardness.min().item(), hardness.max().item()))
         print("Q Table  --> Min: {:.3f}, Max: {:.2f}".format(quantizationTable.min().item(), quantizationTable.max().item()))
         print("Alpha    --> Min: {:.3f}, Max: {:.3f}".format(alpha.min().item(), alpha.max().item()))
-        # print("")
-        # print("Hardness_lum\n" , hardness[0])
-        # print("Hardness_chrom\n" , hardness[1])
-        # print("")
         str_q_alpha = "| {:.3f} \t {:.3f}\t{:.3f}\t{:.3f}\t{:.3f}\t{:.3f}\t{:.3f}\t{:.3f}\t{:.3f}\t".format(
                                                                         opt.hardness_th,
                                                                         (hardness[0]>opt.hardness_th).sum(), (hardness[1]>opt.hardness_th).sum(),
@@ -358,14 +306,7 @@ def main():
                                                                         quantizationTable.min().item(), quantizationTable.max().item(),
                                                                         alpha.min().item(), alpha.max().item(),
                                                                         )
-        # if (epoch % 10 == 1) or (epoch == opt.epochs):
-        #     opt.sensitvity_dir = "./Senstivity_{}/analysis/{}/Epoch_{}_".format(opt.dataset, opt.model, epoch)
-        #     Y_sens, Cb_sens, Cr_sens = get_sens(train_loader, model, opt, save=True)
-
-        # breakpoint()    
         time1 = time.time()
-        # train_acc, train_loss = torch.tensor([0]).cuda(), torch.tensor([0]).cuda()
-        # test_acc, test_acc_top5, test_loss = torch.tensor([0]).cuda(), torch.tensor([0]).cuda(), torch.tensor([0]).cuda()
         train_acc, train_loss = train_JPEG(epoch, train_loader, model, criterion, optimizer_underlying_model, optimizer_JPEG_Layer, opt)
         test_acc, test_acc_top5, test_loss = validate(val_loader, model, criterion, opt)
         time2 = time.time()
@@ -448,18 +389,5 @@ def main():
     save_file = os.path.join(opt.save_folder, '{}_last.pth'.format(opt.model))
     torch.save(state, save_file)
 
-def profiling():
-    import cProfile
-    import pstats
- 
-    with cProfile.Profile() as pr:
-        main()
- 
-    stats = pstats.Stats(pr)
-    stats.sort_stats(pstats.SortKey.TIME)
-    stats.print_stats()
-    stats.dump_stats(filename='profile_vanilla.prof')
-
 if __name__ == '__main__':
     main()
-    # profiling()

@@ -13,7 +13,14 @@ The repo is tested with Python 3.8, CUDA 11.7, and based on the 'requirements.tx
 
 
 
+## Training JPEG-DL
 
+```
+    python3.8 train_teacher_cifar_JPEG.py \
+            --model ${mode} --JEPG_learning_rate 0.003 --JEPG_alpha 5.0 \
+            --JPEG_enable --alpha_fixed --initial_Q_w_sensitivity --ADAM_enable
+
+```
 
 ## Senstivity Estimation
 
