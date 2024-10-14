@@ -4,7 +4,7 @@ This repo is for reproducing the ImageNet experimental results in our paper [*JP
 
 To CIFAR-100 and Fine-grained Tasks using Transformer-Based model, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/TransformerBased).
 
-For ImageNet training, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/ImageNet) directory.
+For ImageNet training, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/ImageNet).
 
 
 <p align="center">
