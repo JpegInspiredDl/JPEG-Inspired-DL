@@ -1,6 +1,6 @@
 # JPEG-Inspired-DL
 
-This repo is for reproducing the ImageNet experimental results in our paper [*JPEG Inspired Deep Learning*] submitted at ICLR 2025.
+This repo is for reproducing the experimental results in our paper [*JPEG Inspired Deep Learning*] submitted at ICLR 2025.
 
 To CIFAR-100 and Fine-grained Tasks using Transformer-Based model, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/TransformerBased).
 
