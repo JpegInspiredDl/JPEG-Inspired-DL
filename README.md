@@ -2,9 +2,9 @@
 
 This repo is for reproducing the experimental results in our paper [*JPEG Inspired Deep Learning*] submitted at ICLR 2025.
 
-To CIFAR-100 and Fine-grained Tasks using Transformer-Based model, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/TransformerBased).
+To CIFAR-100 and Fine-grained Tasks using Transformer-Based model, please use [this local directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/TransformerBased).
 
-For ImageNet training, please use [this directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/ImageNet).
+For ImageNet training, please use [this local directory](https://github.com/JpegInspiredDl/JPEG-Inspired-DL/tree/main/ImageNet).
 
 
 <p align="center">
@@ -104,10 +104,26 @@ Based on the drived Senstivity, we have followed the following steps to initiali
 
     ```
     python3 robustness_JPEG.py --model ${mode} --model_dir "./save/models/${mode}_vanilla/ckpt_epoch_240.pth
+    
     ```
 
 
 
 ## Acknowledgements
 
-This repo is based on the code given in [RepDistiller](https://github.com/HobbitLong/RepDistiller) for CIFAR-100 and [PyTorch](https://github.com/pytorch/vision/tree/main/references/classification#resnet) for ImageNet. Also, we use [Transformer-based](https://github.com/OscarXZQ/weight-selection.git) to produce our results for Transformer-based models. 
+This repo is based on the code given in [RepDistiller](https://github.com/HobbitLong/RepDistiller) for CIFAR-100 and [PyTorch](https://github.com/pytorch/vision/tree/main/references/classification#resnet) for ImageNet. Also, we use [Weight-Selection](https://github.com/OscarXZQ/weight-selection.git) to produce our results for Transformer-based models. 
+
+
+## Citation
+
+```
+    @inproceedings{
+    anonymous2024jpeg,
+    title={JPEG Inspired Deep Learning},
+    author={Anonymous},
+    booktitle={Submitted to The Thirteenth International Conference on Learning Representations},
+    year={2024},
+    url={https://openreview.net/forum?id=te2IdORabL},
+    note={under review}
+    }
+```
