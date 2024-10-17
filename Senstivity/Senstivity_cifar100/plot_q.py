@@ -1,13 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-# from utils import plot_config
-# from results_fromFiles import *
 
-# plt.style.use('ggplot')
-# plt.style.use('bmh')
-
-# def plot_config():
-#     plt.figure()
 plt.rcParams["font.family"] = "Times New Roman"
 font = 25
 # Set the default text font size
@@ -28,7 +21,6 @@ plt.rc('legend', fontsize=15)
 # Set the font size of the figure title
 plt.rc('figure', titlesize=font)
 
-    # return plt
 
 def normalize(arr, factor):
     if factor == 0:
