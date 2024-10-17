@@ -313,7 +313,7 @@ def main():
                 print("Alpha --> Min: {:.2f}, Max: {:.2f}".format(alpha.min().item(), alpha.max().item()))
                 print("Quantization Table --> Min: {:.2f}, Max: {:.2f}".format(quantizationTable.min().item(), quantizationTable.max().item()))
         
-    dir = "./JPEG_DNN_analysis/Robustness/" + path_t.split("/")[-2] + "_FGSM.npy"
+    dir = "./JPEG_DNN_analysis/Robustness/" + path_t.split("/")[-2] + "_PGD.npy"
     save_to_pickle(dir, attack_data)
 
 

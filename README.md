@@ -92,7 +92,7 @@ Based on the drived Senstivity, we have followed the following steps to initiali
 
 ## Robustness Testing
 
-1. Test Robustness for the learned model 
+1. Test Robustness for the learned model using PGD
 
     ```
     python3 robustness_JPEG.py --model ${mode} \
@@ -100,7 +100,7 @@ Based on the drived Senstivity, we have followed the following steps to initiali
                                     --model_dir ${model_dir}
     ```
 
-2. Test Robustness for the standard model 
+2. Test Robustness for the standard model using PGD
 
     ```
     python3 robustness_JPEG.py --model ${mode} --model_dir "./save/models/${mode}_vanilla/ckpt_epoch_240.pth
